@@ -1,5 +1,6 @@
 import ClientOnly from "@/Components/ClientOnly";
-import Modal from "@/Components/Modals/Modal";
+import LoginModal from "@/Components/Modals/LoginModal";
+import RegisterModal from "@/Components/Modals/RegisterModal";
 import Navbar from "@/Components/Navbar";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
@@ -11,7 +12,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <main className={font.className}>
       <ClientOnly>
-        <Modal />
+        <ToasterProvider />
+        <LoginModal />
+        <RegisterModal />
         <Navbar />
       </ClientOnly>
       <Component {...pageProps} />
