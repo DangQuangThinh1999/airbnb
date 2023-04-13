@@ -24,7 +24,7 @@ const RegisterModal = () => {
       password: "",
     },
   });
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     setIsLoading(true);
     axios
       .post("/api/register", data)

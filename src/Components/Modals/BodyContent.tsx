@@ -22,7 +22,7 @@ const BodyContent: React.FC<BodyContentProps> = ({
       />
       <Input
         id="email"
-        label="Email"
+        label="email"
         disabled={isLoading}
         register={register}
         errors={errors}
@@ -30,7 +30,7 @@ const BodyContent: React.FC<BodyContentProps> = ({
       />
       <Input
         id="name"
-        label="Name"
+        label="name"
         disabled={isLoading}
         register={register}
         errors={errors}
@@ -39,7 +39,7 @@ const BodyContent: React.FC<BodyContentProps> = ({
       <Input
         id="password"
         type="password"
-        label="Password"
+        label="password"
         disabled={isLoading}
         register={register}
         errors={errors}

@@ -1,5 +1,5 @@
 import ClientOnly from "@/Components/ClientOnly";
-import Modal from "@/Components/Modals/Modal";
+import LoginModal from "@/Components/Modals/LoginModal";
 import RegisterModal from "@/Components/Modals/RegisterModal";
 import Navbar from "@/Components/Navbar";
 import ToasterProvider from "@/providers/ToasterProvider";
@@ -14,6 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <main className={font.className}>
       <ClientOnly>
         <ToasterProvider />
+        <LoginModal />
         <RegisterModal />
         <Navbar />
       </ClientOnly>
