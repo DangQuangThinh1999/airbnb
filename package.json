@@ -14,15 +14,8 @@
     "@types/node": "18.15.11",
     "@types/react": "18.0.33",
     "@types/react-dom": "18.0.11",
-<<<<<<< HEAD
-    "axios": "^1.3.5",
-=======
-<<<<<<< Updated upstream
-=======
     "axios": "^1.3.5",
     "bcrypt": "^5.1.0",
->>>>>>> Stashed changes
->>>>>>> b0f4bcbeb75dd867a829254925d4384617cdefbb
     "eslint": "8.37.0",
     "eslint-config-next": "13.3.0",
     "next": "13.3.0",

@@ -1,17 +1,19 @@
 "use client";
-
+import { signIn } from "next-auth/react";
 import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import useRegisterModal from "../hooks/useRegisterModal";
+import { useLoginModal } from "../hooks";
 import axios from "axios";
 import Modal from "./Modal";
 import BodyContent from "./BodyContent";
 import FooterContent from "./FooterContent";
+import { useRouter } from "next/navigation";
 const LoginModal = () => {
-  const registerModal = useRegisterModal();
+  const router = useRouter();
+  const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
   const {
     register,
@@ -20,35 +22,40 @@ const LoginModal = () => {
   } = useForm<FieldValues>({
     defaultValues: {
       name: "",
-      email: "",
       password: "",
     },
   });
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     setIsLoading(true);
-    axios
-      .post("/api/register", data)
-      .then(() => {
-        registerModal.onClose();
-      })
-      .catch((error) => {
-        toast.error("Something went wrong");
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+
+    signIn("credentials", {
+      ...data,
+      redirect: false,
+    }).then((callback) => {
+      setIsLoading(false);
+      if (callback?.ok) {
+        toast.success("Logged in");
+        router.refresh();
+        loginModal.onClose();
+      }
+      if (callback?.error) {
+        toast.error(callback.error);
+      }
+    });
   };
 
   return (
     <Modal
       disabled={isLoading}
-      isOpen={registerModal.isOpen}
-      title="Register"
+      isOpen={loginModal.isOpen}
+      title="Login"
       actionLabel="Continue"
-      onClose={registerModal.onClose}
+      onClose={loginModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       body={
         <BodyContent
+          subtitle="Login to your account!"
+          isLogin={true}
           errors={errors}
           isLoading={isLoading}
           register={register}
