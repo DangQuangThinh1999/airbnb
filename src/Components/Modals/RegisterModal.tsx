@@ -49,6 +49,8 @@ const RegisterModal = () => {
       onSubmit={handleSubmit(onSubmit)}
       body={
         <BodyContent
+          isLogin={false}
+          subtitle="Create an account!"
           errors={errors}
           isLoading={isLoading}
           register={register}
