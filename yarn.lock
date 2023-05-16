@@ -135,7 +135,11 @@
     "tiny-glob" "^0.2.9"
     "tslib" "^2.4.0"
 
+<<<<<<< HEAD
 "@prisma/client@^4.12.0", "@prisma/client@>=2.26.0 || >=3":
+=======
+"@prisma/client@^4.12.0", "@prisma/client@>=2.16.0":
+>>>>>>> master
   "integrity" "sha512-j9/ighfWwux97J2dS15nqhl60tYoH8V0IuSsgZDb6bCFcQD3fXbXmxjYC8GHhIgOk3lB7Pq+8CwElz2MiDpsSg=="
   "resolved" "https://registry.npmjs.org/@prisma/client/-/client-4.12.0.tgz"
   "version" "4.12.0"
