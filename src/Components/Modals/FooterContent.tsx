@@ -4,7 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import Button from "../Button";
 import { AiFillGithub } from "react-icons/ai";
 import useRegisterModal from "../hooks/useRegisterModal";
-
+import { signIn } from "next-auth/react";
 const FooterContent = () => {
   const registerModal = useRegisterModal();
   return (
@@ -22,7 +22,7 @@ const FooterContent = () => {
         outline
         label="Continue with GitHub"
         icon={AiFillGithub}
-        onClick={() => {}}
+        onClick={() => signIn("github")}
       />
       <div className="ml-4 text-center font-light text-neutral-500">
         <div className="flex flex-row items-center justify-center gap-2">
