@@ -5,7 +5,7 @@ import LoginModal from "@/Components/Modals/LoginModal";
 import RegisterModal from "@/Components/Modals/RegisterModal";
 import Navbar from "@/Components/Navbar";
 import ToasterProvider from "@/providers/ToasterProvider";
-import { User } from "@prisma/client";
+
 import { SafeUser } from "@/types";
 import prisma from "@/libs/prismadb";
 interface IHome {

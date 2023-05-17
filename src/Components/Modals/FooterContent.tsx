@@ -2,7 +2,7 @@
 
 import { FcGoogle } from "react-icons/fc";
 import Button from "../Button";
-import { AiFillGithub } from "react-icons/ai";
+import { AiFillGithub, AiFillFacebook } from "react-icons/ai";
 import useRegisterModal from "../hooks/useRegisterModal";
 import { signIn } from "next-auth/react";
 const FooterContent = () => {
@@ -15,7 +15,14 @@ const FooterContent = () => {
         outline
         label="Continue with Google"
         icon={FcGoogle}
-        onClick={() => {}}
+        onClick={() => signIn("google")}
+      />
+      <Button
+        color="black"
+        outline
+        label="Continue with Facebook"
+        icon={AiFillFacebook}
+        onClick={() => signIn("facebook")}
       />
       <Button
         color="black"
