@@ -135,11 +135,7 @@
     "tiny-glob" "^0.2.9"
     "tslib" "^2.4.0"
 
-<<<<<<< HEAD
 "@prisma/client@^4.12.0", "@prisma/client@>=2.26.0 || >=3":
-=======
-"@prisma/client@^4.12.0", "@prisma/client@>=2.16.0":
->>>>>>> master
   "integrity" "sha512-j9/ighfWwux97J2dS15nqhl60tYoH8V0IuSsgZDb6bCFcQD3fXbXmxjYC8GHhIgOk3lB7Pq+8CwElz2MiDpsSg=="
   "resolved" "https://registry.npmjs.org/@prisma/client/-/client-4.12.0.tgz"
   "version" "4.12.0"
@@ -179,6 +175,13 @@
   "integrity" "sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ=="
   "resolved" "https://registry.npmjs.org/@types/json5/-/json5-0.0.29.tgz"
   "version" "0.0.29"
+
+"@types/next-auth@^3.15.0":
+  "integrity" "sha512-ZVfejlu81YiIRX1m0iKAfvZ3nK7K9EyZWhNARNKsFop8kNAgEvMnlKpTpwN59xkK2OhyWLagPuiDAVBYSO9jSA=="
+  "resolved" "https://registry.npmjs.org/@types/next-auth/-/next-auth-3.15.0.tgz"
+  "version" "3.15.0"
+  dependencies:
+    "next-auth" "*"
 
 "@types/node@*", "@types/node@18.15.11":
   "integrity" "sha512-E5Kwq2n4SbMzQOn6wnmBjuK9ouqlURrcZDVfbo9ftDDTFt3nk7ZKK4GMOzoYgnpQJKcxwQw+lGaBvvlMo0qN/Q=="
@@ -1810,7 +1813,7 @@
   "resolved" "https://registry.npmjs.org/natural-compare/-/natural-compare-1.4.0.tgz"
   "version" "1.4.0"
 
-"next-auth@^4":
+"next-auth@*", "next-auth@^4", "next-auth@^4.22.1":
   "integrity" "sha512-NTR3f6W7/AWXKw8GSsgSyQcDW6jkslZLH8AiZa5PQ09w1kR8uHtR9rez/E9gAq/o17+p0JYHE8QjF3RoniiObA=="
   "resolved" "https://registry.npmjs.org/next-auth/-/next-auth-4.22.1.tgz"
   "version" "4.22.1"
