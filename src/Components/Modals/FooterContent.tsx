@@ -5,7 +5,21 @@ import Button from "../Button";
 import { AiFillGithub, AiFillFacebook } from "react-icons/ai";
 import useRegisterModal from "../hooks/useRegisterModal";
 import { signIn } from "next-auth/react";
+// import { useSignInWithFacebook } from "react-firebase-hooks/auth";
+// import { auth, provider } from "@/config/firebase";
+// import { signInWithPopup } from "firebase/auth";
 const FooterContent = () => {
+  // const [signInWithFacebook, _user, _loading, _error] =
+  //   useSignInWithFacebook(auth);
+  // const signInFacebook = () => {
+  //   signInWithPopup(auth, provider)
+  //     .then((data) => {
+  //       console.log(data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
   const registerModal = useRegisterModal();
   return (
     <div className="mt-3 flex flex-col gap-4">
@@ -17,13 +31,14 @@ const FooterContent = () => {
         icon={FcGoogle}
         onClick={() => signIn("google")}
       />
-      <Button
+      {/* <Button
         color="black"
         outline
         label="Continue with Facebook"
         icon={AiFillFacebook}
-        onClick={() => signIn("facebook")}
-      />
+        // onClick={() => signIn("facebook")}
+        onClick={signInFacebook}
+      /> */}
       <Button
         color="black"
         outline
