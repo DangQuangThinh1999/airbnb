@@ -8,11 +8,15 @@ import ToasterProvider from "@/providers/ToasterProvider";
 
 import { SafeUser } from "@/types";
 import prisma from "@/libs/prismadb";
+// import { useAuthState } from "react-firebase-hooks/auth";
+// import { auth } from "@/config/firebase";
 interface IHome {
   currentUser?: SafeUser | null;
 }
 
 export default function Home({ currentUser }: IHome) {
+  // const [loggedInUser, _loading, _error] = useAuthState(auth);
+  // console.log(loggedInUser);
   return (
     <ClientOnly>
       <ToasterProvider />
