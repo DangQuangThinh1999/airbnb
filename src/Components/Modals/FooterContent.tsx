@@ -5,6 +5,7 @@ import Button from "../Button";
 import { AiFillGithub, AiFillFacebook } from "react-icons/ai";
 import useRegisterModal from "../hooks/useRegisterModal";
 import { signIn } from "next-auth/react";
+import RegisterModal from "./RegisterModal";
 // import { useSignInWithFacebook } from "react-firebase-hooks/auth";
 // import { auth, provider } from "@/config/firebase";
 // import { signInWithPopup } from "firebase/auth";
@@ -48,7 +49,12 @@ const FooterContent = () => {
       />
       <div className="ml-4 text-center font-light text-neutral-500">
         <div className="flex flex-row items-center justify-center gap-2">
-          <div>Already have an account?</div>
+          <div>
+            {" "}
+            {registerModal.isOpen
+              ? "Already have an account? "
+              : "Create Account!"}
+          </div>
           <div
             onClick={registerModal.onClose}
             className="cursor-pointer
@@ -56,7 +62,7 @@ const FooterContent = () => {
           hover:underline
           "
           >
-            Log in
+            {registerModal.isOpen ? "Login" : "Register"}
           </div>
         </div>
       </div>
