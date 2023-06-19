@@ -6,3 +6,11 @@ export type SafeUser = Omit<User, "createAt" | "updateAt" | "emailVerified"> & {
   updateAt: string;
   emailVerified: string | null;
 };
+export enum STEPS {
+  CATEGORY = 0,
+  LOCATION = 1,
+  INFO = 2,
+  IMAGE = 3,
+  DESCRIPTION = 4,
+  PRICE = 5,
+}

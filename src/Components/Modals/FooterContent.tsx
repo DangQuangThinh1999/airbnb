@@ -3,8 +3,11 @@
 import { FcGoogle } from "react-icons/fc";
 import Button from "../Button";
 import { AiFillGithub, AiFillFacebook } from "react-icons/ai";
-import useRegisterModal from "../hooks/useRegisterModal";
+
 import { signIn } from "next-auth/react";
+
+import { useLoginModal, useRegisterModal } from "../hooks";
+
 // import { useSignInWithFacebook } from "react-firebase-hooks/auth";
 // import { auth, provider } from "@/config/firebase";
 // import { signInWithPopup } from "firebase/auth";
@@ -20,7 +23,18 @@ const FooterContent = () => {
   //       console.log(error);
   //     });
   // };
+
+  const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
+  const handleModal = () => {
+    if (registerModal.isOpen) {
+      registerModal.onClose();
+      loginModal.onOpen();
+    } else if (loginModal.isOpen) {
+      registerModal.onOpen();
+      loginModal.onClose();
+    }
+  };
   return (
     <div className="mt-3 flex flex-col gap-4">
       <hr />
@@ -48,15 +62,20 @@ const FooterContent = () => {
       />
       <div className="ml-4 text-center font-light text-neutral-500">
         <div className="flex flex-row items-center justify-center gap-2">
-          <div>Already have an account?</div>
+          <div>
+            {" "}
+            {registerModal.isOpen
+              ? "Already have an account? "
+              : "Create Account!"}
+          </div>
           <div
-            onClick={registerModal.onClose}
+            onClick={handleModal}
             className="cursor-pointer
           text-neutral-800
           hover:underline
           "
           >
-            Log in
+            {registerModal.isOpen ? "Login" : "Register"}
           </div>
         </div>
       </div>
