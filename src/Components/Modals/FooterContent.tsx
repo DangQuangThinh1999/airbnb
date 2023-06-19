@@ -5,10 +5,9 @@ import Button from "../Button";
 import { AiFillGithub, AiFillFacebook } from "react-icons/ai";
 
 import { signIn } from "next-auth/react";
-import RegisterModal from "./RegisterModal";
-import LoginModal from "./LoginModal";
+
 import { useLoginModal, useRegisterModal } from "../hooks";
-import { useState } from "react";
+
 // import { useSignInWithFacebook } from "react-firebase-hooks/auth";
 // import { auth, provider } from "@/config/firebase";
 // import { signInWithPopup } from "firebase/auth";
