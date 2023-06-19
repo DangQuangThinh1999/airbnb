@@ -8,6 +8,7 @@ import ToasterProvider from "@/providers/ToasterProvider";
 
 import { SafeUser } from "@/types";
 import prisma from "@/libs/prismadb";
+import RentModal from "@/Components/Modals/RentModal/RentModal";
 // import { useAuthState } from "react-firebase-hooks/auth";
 // import { auth } from "@/config/firebase";
 interface IHome {
@@ -20,6 +21,7 @@ export default function Home({ currentUser }: IHome) {
   return (
     <ClientOnly>
       <ToasterProvider />
+      <RentModal />
       <LoginModal />
       <RegisterModal />
       <Navbar currentUser={currentUser} />
