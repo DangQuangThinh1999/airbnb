@@ -89,3 +89,16 @@ export const categories = [
     description: "This property is luxurious!",
   },
 ];
+export const dataInfo = [
+  {
+    id: "guestCount",
+    title: "Guests",
+    subtitle: "How many guests do you allow?",
+  },
+  { id: "roomCount", title: "Rooms", subtitle: "How many rooms do you have?" },
+  {
+    id: "bathroomCount",
+    title: "Bathrooms",
+    subtitle: "How many bathrooms do you have?",
+  },
+];

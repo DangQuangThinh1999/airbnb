@@ -24,12 +24,13 @@ const BodyContentLocation: React.FC<BodyContentLocationProps> = ({
       dynamic(() => import("./MapRent"), {
         ssr: false,
       }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [value]
     //  value is location
   );
   const center = useMemo(() => {
     if (typeof value === "object") {
-      const arrNum = value.latlng?.split(",").map((x) => +x);
+      const arrNum = value?.latlng?.split(",").map((x) => +x);
       return arrNum;
     }
     return undefined;
