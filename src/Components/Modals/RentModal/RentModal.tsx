@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import { useRentModal } from "../../hooks";
 import Modal from "../Modal";
 import { STEPS } from "@/types";
