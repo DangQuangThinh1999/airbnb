@@ -51,6 +51,33 @@
     "@babel/helper-validator-identifier" "^7.22.5"
     "to-fast-properties" "^2.0.0"
 
+"@cloudinary-util/url-loader@^3.8.1":
+  "integrity" "sha512-cBAPiAulWIG5M6HkFDvHhWVo0BJfWnZrr3jz7mIvdVrhKJl3CgK6p9kzSWKC62Ib9SUHMzKBC9R2B8jn+ZCBKA=="
+  "resolved" "https://registry.npmjs.org/@cloudinary-util/url-loader/-/url-loader-3.8.1.tgz"
+  "version" "3.8.1"
+  dependencies:
+    "@cloudinary-util/util" "2.0.1"
+    "@cloudinary/url-gen" "^1.10.1"
+
+"@cloudinary-util/util@^2.0.1", "@cloudinary-util/util@2.0.1":
+  "integrity" "sha512-d2imgUjYTLjv8ZhZPMAts/uPbMvIE71X4I/5hwdY/7vM4BuFQoJMSyq+h2pW1z1MyGG9BOWBm70vp082lSrbEQ=="
+  "resolved" "https://registry.npmjs.org/@cloudinary-util/util/-/util-2.0.1.tgz"
+  "version" "2.0.1"
+
+"@cloudinary/transformation-builder-sdk@^1.2.7":
+  "integrity" "sha512-qbLAfKhX4hy5tFPv4erpxdBT9x0GZgzDuMeDBIygqutNJTeB7lNuEZedf8X++0ZinkDccrJwXzDJty60MEfyHw=="
+  "resolved" "https://registry.npmjs.org/@cloudinary/transformation-builder-sdk/-/transformation-builder-sdk-1.2.9.tgz"
+  "version" "1.2.9"
+  dependencies:
+    "@cloudinary/url-gen" "^1.7.0"
+
+"@cloudinary/url-gen@^1.10.1", "@cloudinary/url-gen@^1.7.0", "@cloudinary/url-gen@^1.8.6":
+  "integrity" "sha512-6pBmapnL7G231NbNWhKbi+08HcpNASci7M3OmZWaUCQWUfdmo3au27HT3Zqg9NMsisfyer3t7o0RXzPQ4XlmMg=="
+  "resolved" "https://registry.npmjs.org/@cloudinary/url-gen/-/url-gen-1.10.1.tgz"
+  "version" "1.10.1"
+  dependencies:
+    "@cloudinary/transformation-builder-sdk" "^1.2.7"
+
 "@emotion/babel-plugin@^11.11.0":
   "integrity" "sha512-m4HEDZleaaCH+XgDDsPF15Ht6wTLsgDTeR3WYj9Q/k76JtWhrJjcP4+/XlG8LGT/Rol9qUfOIztXeA84ATpqPQ=="
   "resolved" "https://registry.npmjs.org/@emotion/babel-plugin/-/babel-plugin-11.11.0.tgz"
@@ -1848,7 +1875,6 @@
     "locate-path" "^6.0.0"
     "path-exists" "^4.0.0"
 
-<<<<<<< HEAD
 "firebase@^9.22.0", "firebase@>= 9.0.0":
   "integrity" "sha512-Ay1u8IOfhPh58RFAHF7A9cKHACCgV6uI2bhkzKdkjnV0n2AAxn4tDtdXvJ3BEbfhF4WWBC2dFcEXH8cd14ptaw=="
   "resolved" "https://registry.npmjs.org/firebase/-/firebase-9.22.0.tgz"
@@ -1881,8 +1907,6 @@
     "@firebase/storage-compat" "0.3.2"
     "@firebase/util" "1.9.3"
 
-=======
->>>>>>> a6026eeb5b3ee9beee236424cb2b476a0fffd6b3
 "flat-cache@^3.0.4":
   "integrity" "sha512-dm9s5Pw7Jc0GvMYbshN6zchCA9RgQlzzEZX3vylR9IqFfS8XciblUXOKfW6SiuJ0e13eDYZoZV5wdrev7P3Nwg=="
   "resolved" "https://registry.npmjs.org/flat-cache/-/flat-cache-3.0.4.tgz"
@@ -2681,7 +2705,16 @@
     "preact-render-to-string" "^5.1.19"
     "uuid" "^8.3.2"
 
-"next@^12.2.5 || ^13", "next@13.3.0":
+"next-cloudinary@^4.12.0":
+  "integrity" "sha512-PzhY3W5KD9oDSvHUarrbtnx8flSriT4KKGNW2y0wy7VEoxF4bP1VunHWeBvDrAQ1pp7aYHeLVY8SAKMCVjPViA=="
+  "resolved" "https://registry.npmjs.org/next-cloudinary/-/next-cloudinary-4.12.0.tgz"
+  "version" "4.12.0"
+  dependencies:
+    "@cloudinary-util/url-loader" "^3.8.1"
+    "@cloudinary-util/util" "^2.0.1"
+    "@cloudinary/url-gen" "^1.8.6"
+
+"next@^12 || ^13", "next@^12.2.5 || ^13", "next@13.3.0":
   "integrity" "sha512-OVTw8MpIPa12+DCUkPqRGPS3thlJPcwae2ZL4xti3iBff27goH024xy4q2lhlsdoYiKOi8Kz6uJoLW/GXwgfOA=="
   "resolved" "https://registry.npmjs.org/next/-/next-13.3.0.tgz"
   "version" "13.3.0"
@@ -3177,7 +3210,6 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
 
-<<<<<<< HEAD
 "react-leaflet@^4.2.1":
   "integrity" "sha512-p9chkvhcKrWn/H/1FFeVSqLdReGwn2qmiobOQGO3BifX+/vV/39qhY8dGqbdcPh1e6jxh/QHriLXr7a4eLFK4Q=="
   "resolved" "https://registry.npmjs.org/react-leaflet/-/react-leaflet-4.2.1.tgz"
@@ -3210,10 +3242,7 @@
     "loose-envify" "^1.4.0"
     "prop-types" "^15.6.2"
 
-"react@*", "react@^16.8.0 || ^17 || ^18", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^17.0.2 || ^18", "react@^18.0.0", "react@^18.2.0", "react@>= 16.8.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16", "react@>=16.6.0", "react@>=16.8", "react@>=16.8.0", "react@18.2.0":
-=======
-"react@*", "react@^16.8.0 || ^17 || ^18", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^17.0.2 || ^18", "react@^18.2.0", "react@>= 16.8.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16", "react@>=16.8", "react@18.2.0":
->>>>>>> a6026eeb5b3ee9beee236424cb2b476a0fffd6b3
+"react@*", "react@^16.8.0 || ^17 || ^18", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^17 || ^18", "react@^17.0.2 || ^18", "react@^18.0.0", "react@^18.2.0", "react@>= 16.8.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16", "react@>=16.6.0", "react@>=16.8", "react@>=16.8.0", "react@18.2.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
