@@ -9,6 +9,7 @@ import BodyContentLocation from "./BodyContentLocation";
 import BodyContentCategory from "./BodyContentCategory";
 import BodyContentInfo from "./BodyContentInfo";
 import BodyContentImages from "./BodyContentImages";
+import BodyContentDescription from "./BodyContentDescription";
 const RentModal = () => {
   const {
     register,
@@ -30,6 +31,7 @@ const RentModal = () => {
       description: "",
     },
   });
+  const description = watch("description");
   const imageSrc = watch("imageSrc");
   const category = watch("category");
   const location = watch("location");
@@ -101,6 +103,15 @@ const RentModal = () => {
           />
         );
       }
+      case STEPS.DESCRIPTION: {
+        return (
+          <BodyContentDescription
+            value={description}
+            error={errors}
+            register={register}
+          />
+        );
+      }
       default: {
         return (
           <BodyContentCategory
@@ -110,7 +121,17 @@ const RentModal = () => {
         );
       }
     }
-  }, [category, dataGroup, imageSrc, location, setCustomValue, step]);
+  }, [
+    category,
+    dataGroup,
+    description,
+    errors,
+    imageSrc,
+    location,
+    register,
+    setCustomValue,
+    step,
+  ]);
   //4:17
   return (
     <Modal
