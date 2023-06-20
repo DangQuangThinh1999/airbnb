@@ -8,6 +8,7 @@ import { FieldValues, useForm } from "react-hook-form";
 import BodyContentLocation from "./BodyContentLocation";
 import BodyContentCategory from "./BodyContentCategory";
 import BodyContentInfo from "./BodyContentInfo";
+import BodyContentImages from "./BodyContentImages";
 const RentModal = () => {
   const {
     register,
@@ -29,6 +30,7 @@ const RentModal = () => {
       description: "",
     },
   });
+  const imageSrc = watch("imageSrc");
   const category = watch("category");
   const location = watch("location");
   const guestCount = watch("guestCount");
@@ -91,6 +93,14 @@ const RentModal = () => {
       case STEPS.INFO: {
         return <BodyContentInfo value={dataGroup} />;
       }
+      case STEPS.IMAGE: {
+        return (
+          <BodyContentImages
+            value={imageSrc}
+            onChange={(value) => setCustomValue("imageSrc", value)}
+          />
+        );
+      }
       default: {
         return (
           <BodyContentCategory
@@ -100,7 +110,7 @@ const RentModal = () => {
         );
       }
     }
-  }, [category, dataGroup, location, setCustomValue, step]);
+  }, [category, dataGroup, imageSrc, location, setCustomValue, step]);
   //4:17
   return (
     <Modal

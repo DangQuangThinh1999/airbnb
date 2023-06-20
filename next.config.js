@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    appDir: true,
+  },
   reactStrictMode: true,
   compiler: {
     // Enables the styled-components SWC transform
@@ -19,6 +22,7 @@ const nextConfig = {
         protocol: "https",
         hostname: "platform-lookaside.fbsbx.com",
       },
+      { protocol: "https", hostname: "res.cloudinary.com" },
     ],
   },
 };
