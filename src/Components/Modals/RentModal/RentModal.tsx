@@ -1,16 +1,24 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useContext, useMemo, useState } from "react";
 import { useRentModal } from "../../hooks";
 import Modal from "../Modal";
 import { STEPS } from "@/types";
-import BodyContent from "./BodyContentCategory";
-import { FieldValues, useForm } from "react-hook-form";
+
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import BodyContentLocation from "./BodyContentLocation";
 import BodyContentCategory from "./BodyContentCategory";
 import BodyContentInfo from "./BodyContentInfo";
 import BodyContentImages from "./BodyContentImages";
 import BodyContentDescription from "./BodyContentDescription";
+import axios from "axios";
+import { toast } from "react-hot-toast";
+import { useRouter } from "next/navigation";
+import BodyContentPrice from "./BodyContentPrice";
+import { CurrentUserContext } from "@/contexts/UserContext";
+
 const RentModal = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -31,6 +39,7 @@ const RentModal = () => {
       description: "",
     },
   });
+  const price = watch("price");
   const description = watch("description");
   const imageSrc = watch("imageSrc");
   const category = watch("category");
@@ -81,7 +90,36 @@ const RentModal = () => {
     }
     return "Back";
   }, [step]);
+  const { setUser, user } = useContext(CurrentUserContext);
 
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    if (step !== STEPS.PRICE) return onNext();
+    setIsLoading(true);
+    if (user.id.length === 0) return;
+
+    const result = {
+      ...data,
+      userId: user.id,
+      location: location.value,
+      price: parseInt(price, 10),
+    };
+    axios
+      .post("/api/listings", result)
+      .then(() => {
+        console.log("ok");
+        toast.success("listing Created");
+        router.refresh();
+        reset();
+        setStep(STEPS.CATEGORY);
+        rentModal.onClose();
+      })
+      .catch(() => {
+        toast.error("Something went wrong");
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
   const handleBodyRent = useMemo(() => {
     switch (step) {
       case STEPS.LOCATION: {
@@ -106,7 +144,18 @@ const RentModal = () => {
       case STEPS.DESCRIPTION: {
         return (
           <BodyContentDescription
+            isLoading={isLoading}
             value={description}
+            error={errors}
+            register={register}
+          />
+        );
+      }
+      case STEPS.PRICE: {
+        return (
+          <BodyContentPrice
+            isLoading={isLoading}
+            value={price}
             error={errors}
             register={register}
           />
@@ -115,7 +164,7 @@ const RentModal = () => {
       default: {
         return (
           <BodyContentCategory
-            onClick={(category) => setCustomValue("category", category)}
+            onClick={(value) => setCustomValue("category", value)}
             category={category}
           />
         );
@@ -127,7 +176,9 @@ const RentModal = () => {
     description,
     errors,
     imageSrc,
+    isLoading,
     location,
+    price,
     register,
     setCustomValue,
     step,
@@ -137,7 +188,7 @@ const RentModal = () => {
     <Modal
       isOpen={rentModal.isOpen}
       onClose={rentModal.onClose}
-      onSubmit={onNext}
+      onSubmit={handleSubmit(onSubmit)}
       actionLabel={actionLabel}
       secondaryActionLabel={secondaryActionLabel}
       secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}

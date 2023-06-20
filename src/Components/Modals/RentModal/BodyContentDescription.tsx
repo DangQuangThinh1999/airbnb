@@ -10,6 +10,7 @@ interface BodyContentDescriptionProps {
   value: string;
   register: UseFormRegister<FieldValues>;
   error: FieldErrors<FieldValues>;
+  isLoading: boolean;
 }
 const dataDescription = [
   { id: "title", label: "Title" },
@@ -19,8 +20,8 @@ const BodyContentDescription: React.FC<BodyContentDescriptionProps> = ({
   value,
   register,
   error,
+  isLoading,
 }) => {
-  const [isLoading, setIsLoading] = useState(false);
   return (
     <div className="flex flex-col gap-8">
       <Heading
